@@ -9,9 +9,12 @@ git clone https://github.com/bvabhishek/misconfigured_acl.git
 * Go to Directory 
 
 ```bash
-cd misconfigured_acl/
+ cd /misconfigured_acl
 ```
-
+* change the permission of bucket_finder tool
+```bash
+chmod 777 bucket_finder.rb
+```
 * Lets use the bucket_finder tool to check our target bucket exist or not
 
 ```bash
@@ -49,7 +52,7 @@ aws configure --profile #your_profile
 * Now try listing thew objects
 
 ```bash
-aws s3 ls s3://vallabh --profile your_name
+aws s3 ls s3://$s3bucket --profile your_name
 ```
 
 * Fish around the bucket 
