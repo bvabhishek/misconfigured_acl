@@ -133,6 +133,13 @@ aws ec2 describe-instances --instance-ids $iId --region us-west-2 --query 'Reser
 aws ec2 stop-instances --instance-id $iId --profile victim --region us-west-2
 
 ```
+// after a minute start the instance
+* Lets stop the instance 
+
+```bash
+aws ec2 start-instances --instance-id $iId --profile victim --region us-west-2
+
+```
 
 * To check where may be the misconfiguration 
 ```bash
