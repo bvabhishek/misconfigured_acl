@@ -9,7 +9,7 @@ git clone https://github.com/bvabhishek/misconfigured_acl.git
 * Go to Directory 
 
 ```bash
- cd /misconfigured_acl
+cd misconfigured_acl/
 ```
 
 * Lets use the bucket_finder tool to check our target bucket exist or not
