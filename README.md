@@ -46,25 +46,25 @@ aws s3 ls s3://$s3bucket
 * if you havent configured your profile follow the below steps
 
 ```bash
-aws configure --profile #your_profile
+aws configure --profile #your_profile_name
 ```
 
 * Now try listing thew objects
 
 ```bash
-aws s3 ls s3://$s3bucket --profile your_name
+aws s3 ls s3://$s3bucket --profile your_profile_name
 ```
 
 * Fish around the bucket 
 
 ```bash
-aws s3 ls s3://vallabh/etc/ --profile your_name
+aws s3 ls s3://vallabh/etc/ --profile your_profile_name
 ```
 
 * Download the juicy file (Relative path to your present working directory)
 
 ```bash
-aws s3 cp s3://vallabh/etc/user.csv /home/we45-abhi/seasides/bucket_finder/ --profile your_name
+aws s3 cp s3://vallabh/etc/user.csv /home/we45-abhi/seasides/bucket_finder/ --profile your_profile_name
 ```
 //use sync 
 
