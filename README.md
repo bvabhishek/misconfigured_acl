@@ -9,7 +9,7 @@ git clone https://github.com/bvabhishek/misconfigured_acl.git
 * Go to Directory 
 
 ```bash
- cd /misconfigured_acl
+ cd misconfigured_acl/
 ```
 * change the permission of bucket_finder tool
 ```bash
