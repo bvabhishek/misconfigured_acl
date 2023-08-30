@@ -64,7 +64,7 @@ aws s3 ls s3://$s3bucket/etc/ --profile your_profile_name
 * Download the juicy file (Relative path to your present working directory)
 
 ```bash
-aws s3 cp s3://vallabh/etc/user.csv /home/we45-abhi/seasides/bucket_finder/ --profile your_profile_name
+aws s3 cp s3://$s3bucket/etc/user.csv /home/we45-abhi/seasides/bucket_finder/ --profile your_profile_name
 ```
 //use sync 
 
