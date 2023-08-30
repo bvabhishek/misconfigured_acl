@@ -107,7 +107,8 @@ aws iam list-attached-user-policies --user-name victim --profile victim
 
 ```bash
 
-aws ec2 describe-instances --profile victim --region us-west-2
+aws ec2 describe-instances --profile victim --region us-west-2 --query 'Reservations[].Instances[?State.Name==`running`]' --output json
+
 ```
 
 * lets export the instance id i-083b2833c663866d1
