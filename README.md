@@ -58,7 +58,7 @@ aws s3 ls s3://$s3bucket --profile your_profile_name
 * Fish around the bucket 
 
 ```bash
-aws s3 ls s3://vallabh/etc/ --profile your_profile_name
+aws s3 ls s3://$s3bucket/etc/ --profile your_profile_name
 ```
 
 * Download the juicy file (Relative path to your present working directory)
